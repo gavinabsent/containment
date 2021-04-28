@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Container Door.png-989bbb7f5331d8627a88d4a013ccd852.stex"
+path="res://.import/wallTile 2-1.png-9470cab9e6f7dd400cadb15269b6be78.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Container Door.png"
-dest_files=[ "res://.import/Container Door.png-989bbb7f5331d8627a88d4a013ccd852.stex" ]
+source_file="res://Assets/Sprites/Tiles/wallTile 2-1.png"
+dest_files=[ "res://.import/wallTile 2-1.png-9470cab9e6f7dd400cadb15269b6be78.stex" ]
 
 [params]
 
