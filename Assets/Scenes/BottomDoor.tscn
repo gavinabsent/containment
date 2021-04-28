@@ -5,7 +5,7 @@
 [ext_resource path="res://Assets/Scripts/BottomDoor.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8, 18 )
+extents = Vector2( 6, 18 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 16, 16 )
@@ -13,15 +13,13 @@ extents = Vector2( 16, 16 )
 [node name="BottomDoor" type="Area2D"]
 position = Vector2( 0, -14 )
 script = ExtResource( 3 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 0, -0.5 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -6 )
+position = Vector2( 0, -7 )
 shape = SubResource( 1 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
