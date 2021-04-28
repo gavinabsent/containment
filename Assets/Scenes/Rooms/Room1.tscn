@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Assets/Scenes/Power Switch.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Scenes/Door.tscn" type="PackedScene" id=2]
@@ -8,7 +8,7 @@
 [ext_resource path="res://Assets/Sprites/Items-Enviroment/plant.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Sprites/Items-Enviroment/FileCabinet.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Sprites/Items-Enviroment/Bible_1.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Player/PlayerStats.gd" type="Script" id=9]
+[ext_resource path="res://Assets/Scenes/PlayerStats.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/Scenes/wall_tile_set.tres" type="TileSet" id=10]
 [ext_resource path="res://Assets/Sprites/Lighting/Square Shadow 2x2.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Sprites/UI/Health Bar Over.png" type="Texture" id=12]
@@ -17,6 +17,11 @@
 [ext_resource path="res://Assets/Scenes/BottomDoor.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Assets/Sprites/UI/Health Bar Progress.png" type="Texture" id=16]
 [ext_resource path="res://Assets/Scripts/StatsContainer.gd" type="Script" id=17]
+[ext_resource path="res://Assets/Sprites/Items-Enviroment/Growth_3.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Scripts/Damage.gd" type="Script" id=19]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 6, 6 )
 
 [node name="Game" type="Node2D"]
 
@@ -197,10 +202,7 @@ scale = Vector2( 8, 2 )
 z_index = -6
 texture = ExtResource( 11 )
 
-[node name="Room3" type="YSort" parent="."]
-
-[node name="PlayerStats" type="Node2D" parent="."]
-script = ExtResource( 9 )
+[node name="PlayerStats" parent="." instance=ExtResource( 9 )]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -238,7 +240,19 @@ texture_under = ExtResource( 14 )
 texture_over = ExtResource( 12 )
 texture_progress = ExtResource( 16 )
 tint_under = Color( 0.294118, 0.286275, 0.345098, 0.505882 )
-tint_over = Color( 1, 1, 1, 0.901961 )
 tint_progress = Color( 1, 0.160784, 0.160784, 0.784314 )
 
-[connection signal="hp_changed" from="PlayerStats" to="CanvasLayer/UI/MarginContainer/StatsContainer" method="_on_PlayerStats_hp_changed"]
+[node name="Damage" type="Area2D" parent="."]
+position = Vector2( 118, -240 )
+script = ExtResource( 19 )
+
+[node name="Growth_3" type="Sprite" parent="Damage"]
+texture = ExtResource( 18 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damage"]
+position = Vector2( 0, 16 )
+shape = SubResource( 1 )
+
+[connection signal="hp_changed" from="PlayerStats" to="Damage" method="_on_PlayerStats_hp_changed"]
+[connection signal="body_entered" from="Damage" to="Damage" method="_on_Damage_body_entered"]
+[connection signal="body_exited" from="Damage" to="Damage" method="_on_Damage_body_exited"]
