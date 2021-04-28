@@ -1,1 +1,0 @@
-So, I think I've figured it out how the player is going to access the next floor. First, they need to reactive the power to the security room. They need to reactive these power boxes in order to get that room funtioning. However, they need to active it in a special order. Activating one out of its order will cause all the others that the player activated to reset back to off. 
