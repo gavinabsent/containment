@@ -2,16 +2,17 @@
 
 [sub_resource type="AudioEffectReverb" id=1]
 resource_name = "Reverb"
+room_size = 0.51
 wet = 0.01
 
 [sub_resource type="AudioEffectEQ" id=2]
 resource_name = "EQ"
-band_db/32_hz = -36.5
+band_db/32_hz = -60.0
 band_db/100_hz = -13.6
-band_db/320_hz = 1.7
-band_db/1000_hz = 0.9
-band_db/3200_hz = -22.9
-band_db/10000_hz = -49.3
+band_db/320_hz = -5.0
+band_db/1000_hz = 4.7
+band_db/3200_hz = -11.5
+band_db/10000_hz = -60.0
 
 [sub_resource type="AudioEffectDistortion" id=3]
 resource_name = "Distortion"
@@ -21,6 +22,7 @@ post_gain = -6.06
 
 [sub_resource type="AudioEffectReverb" id=4]
 resource_name = "Reverb"
+room_size = 0.48
 damping = 0.69
 spread = 0.11
 wet = 0.07
