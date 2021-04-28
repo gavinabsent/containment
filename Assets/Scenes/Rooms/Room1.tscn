@@ -1,0 +1,205 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Assets/Scenes/Door.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Scenes/Chonk.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Sprites/Items-Enviroment/plant.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/Sprite Package/Enviroment Sprites/Document.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/Sprite Package/Enviroment Sprites/Desk.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/Sprite Package/Enviroment Sprites/FileCabinet.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Scenes/wall_tile_set.tres" type="TileSet" id=10]
+[ext_resource path="res://Assets/Sprites/Lighting/Square Shadow 2x2.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sprites/Sprite Package/Posters/Bible_1.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Sprites/Items-Enviroment/desk_brown.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Sprites/Items-Enviroment/FloppyDisks2.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Scenes/BottomDoor.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Assets/Sprites/Sprite Package/Power Boxes/_2.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Sprites/Sprite Package/Enviroment Sprites/Server.png" type="Texture" id=17]
+
+[node name="Game" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = -1000
+tile_set = ExtResource( 10 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( -458754, 0, 1, -458753, 0, 65539, -524288, 0, 65539, -524287, 0, 65539, -524286, 0, 65539, -524285, 0, 65539, -524284, 0, 131076, -393218, 0, 65536, -393217, 0, 196610, -458752, 0, 196610, -458751, 0, 196610, -458750, 0, 196610, -458749, 0, 196610, -458748, 0, 3, -327682, 0, 65536, -327681, 0, 196610, -393216, 0, 196610, -393215, 0, 196610, -393214, 0, 196610, -393213, 0, 196610, -393212, 0, 3, -262146, 0, 65536, -262145, 0, 196610, -327680, 0, 196610, -327679, 0, 196610, -327678, 0, 196610, -327677, 0, 196610, -327676, 0, 3, -196609, 0, 262146, -262144, 0, 262146, -262143, 0, 262146, -262142, 0, 262149, -262141, 0, 262146, -2, 0, 131072, -1, 0, 65537, -65536, 0, 2, -65535, 0, 2, -65534, 0, 131077, -65533, 0, 2, -65532, 0, 2, -65531, 0, 2, -65530, 0, 131076, 65534, 0, 131072, 65535, 0, 196610, 0, 0, 196610, 1, 0, 196610, 2, 0, 196610, 3, 0, 196610, 4, 0, 196610, 5, 0, 196610, 6, 0, 131076, 131070, 0, 131072, 131071, 0, 196610, 65536, 0, 196610, 65537, 0, 196610, 65538, 0, 196610, 65539, 0, 196610, 65540, 0, 196610, 65541, 0, 196610, 65542, 0, 131076, 196606, 0, 131072, 196607, 0, 65537, 131072, 0, 65537, 131073, 0, 65539, 131074, 0, 65539, 131075, 0, 196610, 131076, 0, 196610, 131077, 0, 196610, 131078, 0, 131076, 196610, 0, 131072, 196611, 0, 196610, 196612, 0, 196610, 196613, 0, 196610, 196614, 0, 131076, 262146, 0, 262145, 262147, 0, 262146, 262148, 0, 262146, 262149, 0, 262146, 262150, 0, 262147 )
+
+[node name="Room 1" type="YSort" parent="."]
+
+[node name="Door" parent="Room 1" instance=ExtResource( 2 )]
+position = Vector2( 80, -16 )
+z_index = -3
+next_position_x = 80
+next_position_y = -110
+
+[node name="Chonk" parent="Room 1" instance=ExtResource( 4 )]
+position = Vector2( 48, -2 )
+rotation = 1.5708
+scale = Vector2( 0.75, 0.75 )
+z_index = 7
+
+[node name="Decor" type="Node2D" parent="Room 1"]
+
+[node name="desk shadow" type="Sprite" parent="Room 1/Decor"]
+position = Vector2( 48, 3 )
+scale = Vector2( 10, 5 )
+z_index = -6
+texture = ExtResource( 11 )
+
+[node name="desk shadow2" type="Sprite" parent="Room 1/Decor"]
+position = Vector2( 126, 3 )
+scale = Vector2( 10, 5 )
+z_index = -6
+texture = ExtResource( 11 )
+
+[node name="desk_brown" type="Sprite" parent="Room 1/Decor"]
+position = Vector2( 48, 0 )
+texture = ExtResource( 13 )
+
+[node name="FloppyDisks2" type="Sprite" parent="Room 1/Decor"]
+position = Vector2( 33, 10 )
+rotation = -0.856957
+scale = Vector2( 0.5, 0.5 )
+z_index = 2
+texture = ExtResource( 14 )
+
+[node name="plant shadow" type="Sprite" parent="Room 1/Decor"]
+position = Vector2( 26, 2 )
+scale = Vector2( 3, 3 )
+z_index = -6
+texture = ExtResource( 11 )
+
+[node name="plant" type="Sprite" parent="Room 1/Decor"]
+position = Vector2( 26, -4 )
+z_index = 1
+texture = ExtResource( 6 )
+
+[node name="FileCabinet" type="Sprite" parent="Room 1/Decor"]
+position = Vector2( 8, -10 )
+texture = ExtResource( 9 )
+
+[node name="Desk" type="Sprite" parent="Room 1/Decor"]
+position = Vector2( 126, 0 )
+texture = ExtResource( 8 )
+
+[node name="Bible_1" type="Sprite" parent="Room 1/Decor"]
+position = Vector2( 48, -19 )
+z_index = 2
+texture = ExtResource( 12 )
+
+[node name="Document" type="Sprite" parent="Room 1/Decor"]
+position = Vector2( 126, -4 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 2
+texture = ExtResource( 7 )
+
+[node name="Room2" type="YSort" parent="."]
+
+[node name="plant" type="Sprite" parent="Room2"]
+position = Vector2( 112, -144 )
+texture = ExtResource( 6 )
+
+[node name="plant shadow" type="Sprite" parent="Room2"]
+position = Vector2( 112, -138 )
+scale = Vector2( 3, 3 )
+z_index = -6
+texture = ExtResource( 11 )
+
+[node name="_2" type="Sprite" parent="Room2"]
+position = Vector2( 89, -240 )
+texture = ExtResource( 16 )
+
+[node name="Server" type="Sprite" parent="Room2"]
+position = Vector2( -16, -227 )
+z_index = 2
+texture = ExtResource( 17 )
+
+[node name="Server2" type="Sprite" parent="Room2"]
+position = Vector2( 8, -227 )
+z_index = 2
+texture = ExtResource( 17 )
+
+[node name="Server3" type="Sprite" parent="Room2"]
+position = Vector2( 32, -227 )
+z_index = 2
+texture = ExtResource( 17 )
+
+[node name="Server4" type="Sprite" parent="Room2"]
+position = Vector2( 56, -227 )
+z_index = 2
+texture = ExtResource( 17 )
+
+[node name="Server5" type="Sprite" parent="Room2"]
+position = Vector2( -16, -186 )
+z_index = 2
+texture = ExtResource( 17 )
+
+[node name="Server6" type="Sprite" parent="Room2"]
+position = Vector2( 8, -186 )
+z_index = 2
+texture = ExtResource( 17 )
+
+[node name="Server7" type="Sprite" parent="Room2"]
+position = Vector2( 32, -186 )
+z_index = 2
+texture = ExtResource( 17 )
+
+[node name="Server8" type="Sprite" parent="Room2"]
+position = Vector2( 56, -186 )
+z_index = 2
+texture = ExtResource( 17 )
+
+[node name="Square Shadow 2x2" type="Sprite" parent="Room2"]
+position = Vector2( -16, -211 )
+scale = Vector2( 8, 2 )
+z_index = -6
+texture = ExtResource( 11 )
+
+[node name="Square Shadow 2x3" type="Sprite" parent="Room2"]
+position = Vector2( 8, -211 )
+scale = Vector2( 8, 2 )
+z_index = -6
+texture = ExtResource( 11 )
+
+[node name="Square Shadow 2x4" type="Sprite" parent="Room2"]
+position = Vector2( 32, -211 )
+scale = Vector2( 8, 2 )
+z_index = -6
+texture = ExtResource( 11 )
+
+[node name="Square Shadow 2x5" type="Sprite" parent="Room2"]
+position = Vector2( 56, -211 )
+scale = Vector2( 8, 2 )
+z_index = -6
+texture = ExtResource( 11 )
+
+[node name="Square Shadow 2x6" type="Sprite" parent="Room2"]
+position = Vector2( -16, -170 )
+scale = Vector2( 8, 2 )
+z_index = -6
+texture = ExtResource( 11 )
+
+[node name="Square Shadow 2x7" type="Sprite" parent="Room2"]
+position = Vector2( 8, -170 )
+scale = Vector2( 8, 2 )
+z_index = -6
+texture = ExtResource( 11 )
+
+[node name="Square Shadow 2x8" type="Sprite" parent="Room2"]
+position = Vector2( 32, -170 )
+scale = Vector2( 8, 2 )
+z_index = -6
+texture = ExtResource( 11 )
+
+[node name="Square Shadow 2x9" type="Sprite" parent="Room2"]
+position = Vector2( 56, -170 )
+scale = Vector2( 8, 2 )
+z_index = -6
+texture = ExtResource( 11 )
+
+[node name="BottomDoor" parent="Room2" instance=ExtResource( 15 )]
+position = Vector2( 80, -110 )
+next_position_x = 80
+next_position_y = -16
+
+[node name="Room3" type="YSort" parent="."]

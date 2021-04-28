@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/mOrTIS.wav-3344b761841ab5368f882e098f7877ea.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/Music/wavs/mOrTIS.wav"
+dest_files=[ "res://.import/mOrTIS.wav-3344b761841ab5368f882e098f7877ea.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

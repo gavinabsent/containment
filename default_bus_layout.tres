@@ -1,0 +1,61 @@
+[gd_resource type="AudioBusLayout" load_steps=6 format=2]
+
+[sub_resource type="AudioEffectReverb" id=5]
+resource_name = "Reverb"
+wet = 0.01
+
+[sub_resource type="AudioEffectEQ" id=1]
+resource_name = "EQ"
+band_db/32_hz = -36.5
+band_db/100_hz = -13.6
+band_db/320_hz = 1.7
+band_db/1000_hz = 0.9
+band_db/3200_hz = -22.9
+band_db/10000_hz = -49.3
+
+[sub_resource type="AudioEffectDistortion" id=2]
+resource_name = "Distortion"
+mode = 1
+drive = 0.56
+post_gain = -6.06
+
+[sub_resource type="AudioEffectReverb" id=3]
+resource_name = "Reverb"
+damping = 0.69
+spread = 0.11
+wet = 0.07
+
+[sub_resource type="AudioEffectFilter" id=4]
+resource_name = "Filter"
+cutoff_hz = 5917.0
+resonance = 0.46
+
+[resource]
+bus/1/name = "Music"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = 0.0
+bus/1/send = "Master"
+bus/2/name = "SoundFX"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = 0.0
+bus/2/send = "Master"
+bus/2/effect/0/effect = SubResource( 5 )
+bus/2/effect/0/enabled = true
+bus/3/name = "Radio"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = 0.0
+bus/3/send = "Music"
+bus/3/effect/0/effect = SubResource( 1 )
+bus/3/effect/0/enabled = true
+bus/3/effect/1/effect = SubResource( 2 )
+bus/3/effect/1/enabled = true
+bus/3/effect/2/effect = SubResource( 3 )
+bus/3/effect/2/enabled = true
+bus/3/effect/3/effect = SubResource( 4 )
+bus/3/effect/3/enabled = true
