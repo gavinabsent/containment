@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=18 format=2]
 
+[ext_resource path="res://Assets/Scenes/Power Switch.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Scenes/Door.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Sprites/Items-Enviroment/Server.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Scenes/Chonk.tscn" type="PackedScene" id=4]
@@ -7,11 +8,15 @@
 [ext_resource path="res://Assets/Sprites/Items-Enviroment/plant.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Sprites/Items-Enviroment/FileCabinet.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Sprites/Items-Enviroment/Bible_1.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Sprites/Items-Enviroment/Power Boxes/_2.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Player/PlayerStats.gd" type="Script" id=9]
 [ext_resource path="res://Assets/Scenes/wall_tile_set.tres" type="TileSet" id=10]
 [ext_resource path="res://Assets/Sprites/Lighting/Square Shadow 2x2.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sprites/UI/Health Bar Over.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Sprites/Items-Enviroment/desk_brown.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Sprites/UI/Health Bar Under.png" type="Texture" id=14]
 [ext_resource path="res://Assets/Scenes/BottomDoor.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Assets/Sprites/UI/Health Bar Progress.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Scripts/StatsContainer.gd" type="Script" id=17]
 
 [node name="Game" type="Node2D"]
 
@@ -20,18 +25,18 @@ z_index = -1000
 tile_set = ExtResource( 10 )
 cell_size = Vector2( 32, 32 )
 format = 1
-tile_data = PoolIntArray( -458754, 1, 65536, -458753, 1, 65537, -524288, 1, 65537, -524287, 1, 65537, -524286, 1, 65537, -524285, 1, 65537, -524284, 1, 3, -393218, 1, 65536, -393217, 1, 65538, -458752, 1, 65538, -458751, 1, 65538, -458750, 1, 65538, -458749, 1, 65538, -458748, 1, 3, -327682, 1, 65536, -327681, 1, 65538, -393216, 1, 65538, -393215, 1, 65538, -393214, 1, 65538, -393213, 1, 65538, -393212, 1, 3, -262146, 1, 65536, -262145, 1, 65538, -327680, 1, 65538, -327679, 1, 65538, -327678, 1, 65538, -327677, 1, 65538, -327676, 1, 3, -196610, 1, 327682, -196609, 1, 65537, -262144, 1, 65537, -262143, 1, 65537, -262142, 1, 196613, -262141, 1, 65537, -262140, 1, 327681, -2, 1, 65536, -1, 1, 65537, -65536, 1, 65537, -65535, 1, 65537, -65534, 1, 196613, -65533, 1, 65537, -65532, 1, 65537, -65531, 1, 65540, 65534, 1, 65536, 65535, 1, 65538, 0, 1, 65538, 1, 1, 65538, 2, 1, 65538, 3, 1, 65538, 4, 1, 65538, 5, 1, 65540, 131070, 1, 65536, 131071, 1, 65538, 65536, 1, 65538, 65537, 1, 65538, 65538, 1, 65538, 65539, 1, 65538, 65540, 1, 65538, 65541, 1, 65540, 196606, 1, 327682, 196607, 1, 65537, 131072, 1, 65537, 131073, 1, 65537, 131074, 1, 131077, 131075, 1, 65538, 131076, 1, 65538, 131077, 1, 65540, 262142, 3, 131072, 262143, 3, 65537, 196608, 3, 65537, 196609, 3, 131077, 196610, 1, 327682, 196611, 1, 65537, 196612, 1, 65537, 196613, 1, 327681 )
+tile_data = PoolIntArray( -458754, 1, 65536, -458753, 1, 65537, -524288, 1, 65537, -524287, 1, 65537, -524286, 1, 65537, -524285, 1, 65537, -524284, 1, 3, -393218, 1, 65536, -393217, 1, 65538, -458752, 1, 65538, -458751, 1, 65538, -458750, 1, 65538, -458749, 1, 65538, -458748, 1, 3, -327682, 1, 65536, -327681, 1, 65538, -393216, 1, 65538, -393215, 1, 65538, -393214, 1, 65538, -393213, 1, 65538, -393212, 1, 3, -262146, 1, 327682, -262145, 1, 65537, -327680, 1, 65537, -327679, 1, 65537, -327678, 1, 196613, -327677, 1, 65537, -327676, 1, 327681, -65538, 1, 65536, -65537, 1, 65537, -131072, 1, 65537, -131071, 1, 65537, -131070, 1, 196613, -131069, 1, 65537, -131068, 1, 65537, -131067, 1, 3, -2, 1, 65536, -1, 1, 65538, -65536, 1, 65538, -65535, 1, 65538, -65534, 1, 65538, -65533, 1, 65538, -65532, 1, 65538, -65531, 1, 65540, 65534, 1, 65536, 65535, 1, 65538, 0, 1, 65538, 1, 1, 65538, 2, 1, 65538, 3, 1, 65538, 4, 1, 65538, 5, 1, 65540, 131070, 1, 327682, 131071, 1, 65537, 65536, 1, 65537, 65537, 1, 65537, 65538, 1, 131077, 65539, 1, 65538, 65540, 1, 65538, 65541, 1, 65540, 131074, 1, 327682, 131075, 1, 65537, 131076, 1, 65537, 131077, 1, 327681, 262142, 3, 131072, 196609, 3, 131077 )
 
 [node name="Room 1" type="YSort" parent="."]
 
 [node name="Door 1-2" parent="Room 1" instance=ExtResource( 2 )]
-position = Vector2( 80, -16 )
+position = Vector2( 80, -48 )
 z_index = -3
 next_position_x = 80
-next_position_y = -112
+next_position_y = -142
 
 [node name="Chonk" parent="Room 1" instance=ExtResource( 4 )]
-position = Vector2( 48, -2 )
+position = Vector2( 48, -36 )
 rotation = 1.5708
 scale = Vector2( 0.75, 0.75 )
 z_index = 7
@@ -39,7 +44,7 @@ z_index = 7
 [node name="Decor" type="Node2D" parent="Room 1"]
 
 [node name="desk_brown" type="Sprite" parent="Room 1/Decor"]
-position = Vector2( 48, 0 )
+position = Vector2( 48, -32 )
 texture = ExtResource( 5 )
 
 [node name="desk shadow" type="Sprite" parent="Room 1/Decor/desk_brown"]
@@ -49,7 +54,7 @@ z_index = -6
 texture = ExtResource( 11 )
 
 [node name="plant" type="Sprite" parent="Room 1/Decor"]
-position = Vector2( 26, -4 )
+position = Vector2( 24, -32 )
 z_index = 1
 texture = ExtResource( 6 )
 
@@ -60,7 +65,7 @@ z_index = -6
 texture = ExtResource( 11 )
 
 [node name="FileCabinet" type="Sprite" parent="Room 1/Decor"]
-position = Vector2( 9, -8 )
+position = Vector2( 8, -40 )
 texture = ExtResource( 7 )
 
 [node name="Square Shadow 2x2" type="Sprite" parent="Room 1/Decor/FileCabinet"]
@@ -69,7 +74,7 @@ scale = Vector2( 8, 1 )
 texture = ExtResource( 11 )
 
 [node name="Desk" type="Sprite" parent="Room 1/Decor"]
-position = Vector2( 126, 0 )
+position = Vector2( 128, -32 )
 texture = ExtResource( 13 )
 
 [node name="desk shadow2" type="Sprite" parent="Room 1/Decor/Desk"]
@@ -79,21 +84,23 @@ z_index = -6
 texture = ExtResource( 11 )
 
 [node name="Bible_1" type="Sprite" parent="Room 1/Decor"]
-position = Vector2( 48, -19 )
+position = Vector2( 48, -48 )
 z_index = 2
 texture = ExtResource( 8 )
 
 [node name="Room2" type="YSort" parent="."]
 
 [node name="BottomDoor 2-1" parent="Room2" instance=ExtResource( 15 )]
-position = Vector2( 80, -110 )
+position = Vector2( 80, -142 )
 next_position_x = 80
-next_position_y = -16
+next_position_y = -48
+
+[node name="Power Switch" parent="Room2" instance=ExtResource( 1 )]
 
 [node name="Decor" type="Node2D" parent="Room2"]
 
 [node name="plant" type="Sprite" parent="Room2/Decor"]
-position = Vector2( 112, -144 )
+position = Vector2( 112, -179 )
 texture = ExtResource( 6 )
 
 [node name="plant shadow" type="Sprite" parent="Room2/Decor/plant"]
@@ -101,10 +108,6 @@ position = Vector2( 0, 6 )
 scale = Vector2( 3, 3 )
 z_index = -6
 texture = ExtResource( 11 )
-
-[node name="_2" type="Sprite" parent="Room2/Decor"]
-position = Vector2( 89, -240 )
-texture = ExtResource( 9 )
 
 [node name="Server" type="Sprite" parent="Room2/Decor"]
 position = Vector2( -16, -227 )
@@ -195,3 +198,47 @@ z_index = -6
 texture = ExtResource( 11 )
 
 [node name="Room3" type="YSort" parent="."]
+
+[node name="PlayerStats" type="Node2D" parent="."]
+script = ExtResource( 9 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+margin_right = 240.0
+margin_bottom = 135.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 53.0
+margin_bottom = 11.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StatsContainer" type="VBoxContainer" parent="CanvasLayer/UI/MarginContainer"]
+margin_right = 48.0
+margin_bottom = 6.0
+script = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health" type="TextureProgress" parent="CanvasLayer/UI/MarginContainer/StatsContainer"]
+margin_right = 48.0
+margin_bottom = 6.0
+max_value = 20.0
+step = 0.1
+value = 6.0
+texture_under = ExtResource( 14 )
+texture_over = ExtResource( 12 )
+texture_progress = ExtResource( 16 )
+tint_under = Color( 0.294118, 0.286275, 0.345098, 0.505882 )
+tint_over = Color( 1, 1, 1, 0.901961 )
+tint_progress = Color( 1, 0.160784, 0.160784, 0.784314 )
+
+[connection signal="hp_changed" from="PlayerStats" to="CanvasLayer/UI/MarginContainer/StatsContainer" method="_on_PlayerStats_hp_changed"]

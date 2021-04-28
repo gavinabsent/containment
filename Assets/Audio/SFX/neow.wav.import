@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/neow.wav-b8b8c05c69de53f2cbe305ba25e08b60.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX/neow.wav"
+dest_files=[ "res://.import/neow.wav-b8b8c05c69de53f2cbe305ba25e08b60.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

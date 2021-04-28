@@ -11,11 +11,6 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 4 ), ExtResource( 1 ) ],
-"loop": true,
-"name": "Walk_D",
-"speed": 2.5
-}, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "Idle_U",
@@ -30,6 +25,11 @@ animations = [ {
 "loop": true,
 "name": "Idle_D",
 "speed": 0.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "Walk_D",
+"speed": 2.5
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -44,7 +44,7 @@ script = ExtResource( 2 )
 
 [node name="Shadow" type="Sprite" parent="."]
 position = Vector2( 3.38813e-21, 7 )
-scale = Vector2( 0.24, 0.24 )
+scale = Vector2( 0.36, 0.36 )
 z_index = -6
 texture = ExtResource( 8 )
 
