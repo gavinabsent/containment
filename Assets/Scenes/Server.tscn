@@ -14,15 +14,15 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 8, 4 )
+extents = Vector2( 8, 5 )
 
-[node name="Server" type="AnimatedSprite"]
+[node name="Server" type="StaticBody2D"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 frame = 1
 playing = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 0, 12 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 11 )
 shape = SubResource( 2 )
