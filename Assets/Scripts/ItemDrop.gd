@@ -9,3 +9,5 @@ func _ready():
 func pick_up_item(body):
 	player = body
 	print("Picking up item")
+	PlayerInventory.add_item(item_name)
+	queue_free()
