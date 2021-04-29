@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/Sprites/Player/PlayerWalkingFrontRight1.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Scripts/Player.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Assets/Sprites/Player/PlayerWalkingForwardsRight1.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Sprites/Player/PlayerShadow.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Player/InteractArea.gd" type="Script" id=9]
+[ext_resource path="res://Assets/Audio/SFX/Pickup1.wav" type="AudioStream" id=10]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -67,6 +68,10 @@ shape = SubResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+
+[node name="PickupItem" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -24.0
 
 [connection signal="body_entered" from="InteractArea" to="InteractArea" method="_on_InteractArea_body_entered"]
 [connection signal="body_exited" from="InteractArea" to="InteractArea" method="_on_InteractArea_body_exited"]

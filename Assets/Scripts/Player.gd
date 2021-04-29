@@ -54,4 +54,5 @@ func _input(event):
 		if $InteractArea.items_in_range.size() > 0:
 			var pickup_item = $InteractArea.items_in_range.values()[0]
 			pickup_item.pick_up_item(self)
+			$PickupItem.play()
 			$InteractArea.items_in_range.erase(pickup_item)
