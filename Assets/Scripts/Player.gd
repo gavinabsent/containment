@@ -48,3 +48,10 @@ func _physics_process(delta):
 	if anim != animNew:
 		animNew = anim
 		playerAnim.play(anim)
+
+func _input(event):
+	if event.is_action_pressed("interact"):
+		if $InteractArea.items_in_range.size() > 0:
+			var pickup_item = $InteractArea.items_in_range.values()[0]
+			pickup_item.pick_up_item(self)
+			$InteractArea.items_in_range.erase(pickup_item)

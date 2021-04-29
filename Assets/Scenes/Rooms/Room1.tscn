@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Assets/Scenes/Power Switch.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Scenes/Door.tscn" type="PackedScene" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://Assets/Scripts/UserInterface.gd" type="Script" id=22]
 [ext_resource path="res://Assets/Resources/Fonts/November.ttf" type="DynamicFontData" id=23]
 [ext_resource path="res://Assets/Scenes/Inventory.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Assets/Scenes/ItemDrop.tscn" type="PackedScene" id=25]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 23 )
@@ -48,6 +49,8 @@ extents = Vector2( 6, 6 )
 z_index = -1000
 tile_set = ExtResource( 10 )
 cell_size = Vector2( 32, 32 )
+collision_layer = 2
+collision_mask = 7
 format = 1
 tile_data = PoolIntArray( -458754, 1, 65536, -458753, 2, 65537, -524288, 2, 65537, -524287, 2, 65537, -524286, 2, 65537, -524285, 2, 65537, -524284, 1, 3, -393218, 1, 65536, -393217, 1, 65538, -458752, 1, 65538, -458751, 1, 65538, -458750, 1, 65538, -458749, 1, 65538, -458748, 1, 3, -327682, 1, 65536, -327681, 1, 65538, -393216, 1, 65538, -393215, 1, 65538, -393214, 1, 65538, -393213, 1, 65538, -393212, 1, 3, -262146, 2, 327682, -262145, 2, 65537, -327680, 2, 65537, -327679, 2, 65537, -327678, 2, 196613, -327677, 2, 65537, -327676, 2, 327681, -65538, 1, 65536, -65537, 1, 65537, -131072, 1, 65537, -131071, 1, 65537, -131070, 1, 196613, -131069, 1, 65537, -131068, 1, 65537, -131067, 1, 3, -2, 1, 65536, -1, 1, 65538, -65536, 1, 65538, -65535, 1, 65538, -65534, 1, 65538, -65533, 1, 65538, -65532, 1, 65538, -65531, 1, 65540, 65534, 1, 65536, 65535, 1, 65538, 0, 1, 65538, 1, 1, 65538, 2, 1, 65538, 3, 1, 65538, 4, 1, 65538, 5, 1, 65540, 131070, 1, 327682, 131071, 1, 65537, 65536, 1, 65537, 65537, 1, 65537, 65538, 1, 131077, 65539, 1, 65538, 65540, 1, 65538, 65541, 1, 65540, 131074, 1, 327682, 131075, 1, 65537, 131076, 1, 65537, 131077, 1, 327681, 262142, 3, 131072, 196609, 3, 131077 )
 
@@ -121,10 +124,10 @@ music = ExtResource( 13 )
 
 [node name="PlayerStats" parent="." instance=ExtResource( 9 )]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UserInterface" type="CanvasLayer" parent="."]
 script = ExtResource( 22 )
 
-[node name="UI" type="Control" parent="CanvasLayer"]
+[node name="UI" type="Control" parent="UserInterface"]
 margin_right = 240.0
 margin_bottom = 135.0
 theme = SubResource( 2 )
@@ -132,7 +135,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI"]
+[node name="MarginContainer" type="MarginContainer" parent="UserInterface/UI"]
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 53.0
@@ -141,7 +144,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="StatsContainer" type="VBoxContainer" parent="CanvasLayer/UI/MarginContainer"]
+[node name="StatsContainer" type="VBoxContainer" parent="UserInterface/UI/MarginContainer"]
 margin_right = 48.0
 margin_bottom = 6.0
 script = ExtResource( 17 )
@@ -149,7 +152,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Health" type="TextureProgress" parent="CanvasLayer/UI/MarginContainer/StatsContainer"]
+[node name="Health" type="TextureProgress" parent="UserInterface/UI/MarginContainer/StatsContainer"]
 margin_right = 48.0
 margin_bottom = 6.0
 max_value = 20.0
@@ -161,7 +164,7 @@ texture_progress = ExtResource( 16 )
 tint_under = Color( 0.294118, 0.286275, 0.345098, 0.505882 )
 tint_progress = Color( 1, 0.160784, 0.160784, 0.784314 )
 
-[node name="Inventory" parent="CanvasLayer" instance=ExtResource( 24 )]
+[node name="Inventory" parent="UserInterface" instance=ExtResource( 24 )]
 visible = false
 
 [node name="Damage" type="Area2D" parent="."]
@@ -179,6 +182,9 @@ shape = SubResource( 3 )
 stream = ExtResource( 20 )
 volume_db = -28.0
 
-[connection signal="hp_changed" from="PlayerStats" to="CanvasLayer/UI/MarginContainer/StatsContainer" method="_on_PlayerStats_hp_changed"]
+[node name="ItemDrop" parent="." instance=ExtResource( 25 )]
+position = Vector2( 109, -10 )
+
+[connection signal="hp_changed" from="PlayerStats" to="UserInterface/UI/MarginContainer/StatsContainer" method="_on_PlayerStats_hp_changed"]
 [connection signal="body_entered" from="Damage" to="Damage" method="_on_Damage_body_entered"]
 [connection signal="body_exited" from="Damage" to="Damage" method="_on_Damage_body_exited"]
