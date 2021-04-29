@@ -21,7 +21,7 @@
 [ext_resource path="res://Assets/Scripts/Damage.gd" type="Script" id=19]
 [ext_resource path="res://Assets/Audio/SFX/hit2.wav" type="AudioStream" id=20]
 [ext_resource path="res://Assets/Player/Player.tscn" type="PackedScene" id=21]
-[ext_resource path="res://Assets/Sprites/UI/Inventory Slot 1.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Scripts/UserInterface.gd" type="Script" id=22]
 [ext_resource path="res://Assets/Resources/Fonts/November.ttf" type="DynamicFontData" id=23]
 [ext_resource path="res://Assets/Scenes/Inventory.tscn" type="PackedScene" id=24]
 
@@ -122,6 +122,7 @@ music = ExtResource( 13 )
 [node name="PlayerStats" parent="." instance=ExtResource( 9 )]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource( 22 )
 
 [node name="UI" type="Control" parent="CanvasLayer"]
 margin_right = 240.0
@@ -160,88 +161,8 @@ texture_progress = ExtResource( 16 )
 tint_under = Color( 0.294118, 0.286275, 0.345098, 0.505882 )
 tint_progress = Color( 1, 0.160784, 0.160784, 0.784314 )
 
-[node name="InventoryContainer" type="GridContainer" parent="CanvasLayer/UI"]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -20.0
-margin_top = -20.0
-margin_right = 20.0
-margin_bottom = 20.0
-grow_horizontal = 2
-custom_constants/vseparation = 12
-custom_constants/hseparation = 6
-columns = 5
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/InventoryContainer"]
-margin_right = 16.0
-margin_bottom = 16.0
-texture = ExtResource( 22 )
-
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/UI/InventoryContainer"]
-margin_left = 22.0
-margin_right = 38.0
-margin_bottom = 16.0
-texture = ExtResource( 22 )
-
-[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/UI/InventoryContainer"]
-margin_left = 44.0
-margin_right = 60.0
-margin_bottom = 16.0
-texture = ExtResource( 22 )
-
-[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/UI/InventoryContainer"]
-margin_left = 66.0
-margin_right = 82.0
-margin_bottom = 16.0
-texture = ExtResource( 22 )
-
-[node name="TextureRect5" type="TextureRect" parent="CanvasLayer/UI/InventoryContainer"]
-margin_left = 88.0
-margin_right = 104.0
-margin_bottom = 16.0
-texture = ExtResource( 22 )
-
-[node name="TextureRect6" type="TextureRect" parent="CanvasLayer/UI/InventoryContainer"]
-margin_top = 28.0
-margin_right = 16.0
-margin_bottom = 44.0
-texture = ExtResource( 22 )
-
-[node name="TextureRect7" type="TextureRect" parent="CanvasLayer/UI/InventoryContainer"]
-margin_left = 22.0
-margin_top = 28.0
-margin_right = 38.0
-margin_bottom = 44.0
-texture = ExtResource( 22 )
-
-[node name="TextureRect8" type="TextureRect" parent="CanvasLayer/UI/InventoryContainer"]
-margin_left = 44.0
-margin_top = 28.0
-margin_right = 60.0
-margin_bottom = 44.0
-texture = ExtResource( 22 )
-
-[node name="TextureRect9" type="TextureRect" parent="CanvasLayer/UI/InventoryContainer"]
-margin_left = 66.0
-margin_top = 28.0
-margin_right = 82.0
-margin_bottom = 44.0
-texture = ExtResource( 22 )
-
-[node name="TextureRect10" type="TextureRect" parent="CanvasLayer/UI/InventoryContainer"]
-margin_left = 88.0
-margin_top = 28.0
-margin_right = 104.0
-margin_bottom = 44.0
-texture = ExtResource( 22 )
-
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource( 24 )]
+visible = false
 
 [node name="Damage" type="Area2D" parent="."]
 position = Vector2( 118, -240 )
