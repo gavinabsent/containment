@@ -3,6 +3,8 @@ extends Area2D
 var can_interact = false
 var is_on = true
 
+signal hp_changed
+
 func _ready():
 	pass
 
@@ -22,5 +24,6 @@ func _input(_event):
 		
 		var root = get_tree().current_scene
 		var player = root.find_node("PlayerStats")
-		print(player.hp)
 		player.hp -= 3
+		emit_signal("hp_changed", player.hp)
+		$AudioStreamPlayer.play()
