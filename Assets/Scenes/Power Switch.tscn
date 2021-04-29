@@ -20,11 +20,11 @@ animations = [ {
 script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 88, -226 )
+position = Vector2( 1, -2 )
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 87, -240 )
+position = Vector2( 0, -16 )
 frames = SubResource( 2 )
 
 [node name="SFX" type="AudioStreamPlayer" parent="."]

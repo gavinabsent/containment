@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/Sprites/Items-Enviroment/Server1.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Sprites/Items-Enviroment/Server2.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/Items-Enviroment/Server0.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/Items-Enviroment/Server3.png" type="Texture" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 4 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 1.25
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 4 )
+
+[node name="Server" type="AnimatedSprite"]
+frames = SubResource( 1 )
+frame = 1
+playing = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 0, 12 )
+shape = SubResource( 2 )

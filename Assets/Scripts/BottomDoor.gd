@@ -3,7 +3,8 @@ extends Area2D
 export(int) var next_position_x
 export(int) var next_position_y
 var can_interact = false
-
+onready var root = get_parent().get_parent()
+onready var Player = root.find_node("Player")
 
 func _ready():
 	pass 

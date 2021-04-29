@@ -15,6 +15,7 @@ var new_position = Vector2.ZERO
 var next_door_position = Vector2.ZERO
 
 func _ready():
+	self.global_position = Vector2.ZERO
 	playerAnim = get_node("Sprite")
 	set_process_input(true)
 

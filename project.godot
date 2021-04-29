@@ -21,7 +21,6 @@ config/icon="res://icon.png"
 [autoload]
 
 Global="*res://Assets/Scripts/Global.gd"
-Player="*res://Assets/Player/Player.tscn"
 
 [display]
 
