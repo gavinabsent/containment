@@ -1,0 +1,10 @@
+{
+  "Green Keycard": {
+    "ItemCategory": "Item",
+    "Description": "test"
+  },
+  "Blue Floppy": {
+    "ItemCategory": "Weapon",
+    "Description": "test weapon"
+  }
+}

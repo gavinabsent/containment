@@ -13,25 +13,25 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "Idle_D",
-"speed": 0.0
+"speed": 4.0
 }, {
 "frames": [ ExtResource( 4 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "Walk_D",
 "speed": 2.5
 }, {
-"frames": [ ExtResource( 7 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "Walk_U",
-"speed": 2.5
-}, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "Idle_U",
 "speed": 0.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "Walk_U",
+"speed": 2.5
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -53,6 +53,7 @@ texture = ExtResource( 8 )
 position = Vector2( 0, -6 )
 frames = SubResource( 1 )
 animation = "Idle_D"
+playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 3 )

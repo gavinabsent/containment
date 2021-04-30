@@ -3,8 +3,11 @@ extends Area2D
 var can_interact = false
 var is_on = true
 
-onready var sprite = get_node("AnimatedSprite")
-onready var SFX = get_node("SFX")
+onready var sprite = $AnimatedSprite
+onready var SFX = $SFX
+
+signal lights_off
+signal lights_on
 
 func _ready():
 	sprite.frame = 0
@@ -28,6 +31,8 @@ func _input(_event):
 		if is_on == true:
 			is_on = false
 			sprite.frame = 1
+			emit_signal("lights_off")
 		else:
 			is_on = true
 			sprite.frame = 0
+			emit_signal("lights_on")

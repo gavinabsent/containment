@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/Scenes/wall_tile_set.tres" type="TileSet" id=1]
-[ext_resource path="res://Assets/Scenes/Door.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Scenes/NormalDoor.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Player/Player.tscn" type="PackedScene" id=4]
 
 [node name="Room2" type="YSort"]
