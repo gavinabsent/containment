@@ -11,7 +11,6 @@ onready var Player = root.find_node("Player")
 
 
 func _ready():
-	print(root)
 	if is_bottom == true:
 		offset = 64
 

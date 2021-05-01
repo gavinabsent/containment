@@ -62,9 +62,6 @@ tile_data = PoolIntArray( -458754, 1, 65536, -458753, 2, 65537, -524288, 2, 6553
 
 [node name="Lights" type="Node2D" parent="."]
 script = ExtResource( 28 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Light2D" type="Light2D" parent="Lights"]
 position = Vector2( 15.5706, -1.45631 )
@@ -74,7 +71,7 @@ color = Color( 0.956863, 0.988235, 1, 1 )
 shadow_enabled = true
 
 [node name="Light2D2" type="Light2D" parent="Lights"]
-position = Vector2( 132.641, -3.57524 )
+position = Vector2( 135, -8 )
 texture = ExtResource( 27 )
 texture_scale = 0.5
 color = Color( 0.956863, 0.988235, 1, 1 )
@@ -93,6 +90,35 @@ texture_scale = 0.5
 color = Color( 0.956863, 0.988235, 1, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 21 )]
+
+[node name="Room2" type="YSort" parent="."]
+
+[node name="Power Switch" parent="Room2" instance=ExtResource( 1 )]
+position = Vector2( 87, -224 )
+
+[node name="plant" type="Sprite" parent="Room2"]
+position = Vector2( 116, -180 )
+texture = ExtResource( 6 )
+
+[node name="plant shadow" type="Sprite" parent="Room2/plant"]
+position = Vector2( 0, 6 )
+scale = Vector2( 3, 3 )
+z_index = -6
+texture = ExtResource( 11 )
+
+[node name="Server" parent="Room2" instance=ExtResource( 3 )]
+position = Vector2( -16, -221 )
+
+[node name="Chonk2" parent="Room2" instance=ExtResource( 4 )]
+position = Vector2( 101, -200 )
+scale = Vector2( 0.75, 0.75 )
+music = ExtResource( 13 )
+
+[node name="Door2" parent="Room2" instance=ExtResource( 15 )]
+position = Vector2( 80, -144 )
+next_position_x = 80
+next_position_y = -48
+is_bottom = true
 
 [node name="Room 1" type="YSort" parent="."]
 
@@ -126,28 +152,10 @@ texture = ExtResource( 11 )
 position = Vector2( 48, -48 )
 texture = ExtResource( 8 )
 
-[node name="Room2" type="YSort" parent="."]
-
-[node name="Power Switch" parent="Room2" instance=ExtResource( 1 )]
-position = Vector2( 87, -224 )
-
-[node name="plant" type="Sprite" parent="Room2"]
-position = Vector2( 116, -180 )
-texture = ExtResource( 6 )
-
-[node name="plant shadow" type="Sprite" parent="Room2/plant"]
-position = Vector2( 0, 6 )
-scale = Vector2( 3, 3 )
-z_index = -6
-texture = ExtResource( 11 )
-
-[node name="Server" parent="Room2" instance=ExtResource( 3 )]
-position = Vector2( -16, -221 )
-
-[node name="Chonk2" parent="Room2" instance=ExtResource( 4 )]
-position = Vector2( 101, -200 )
-scale = Vector2( 0.75, 0.75 )
-music = ExtResource( 13 )
+[node name="Door" parent="Room 1" instance=ExtResource( 15 )]
+position = Vector2( 80, -48 )
+next_position_x = 80
+next_position_y = -144
 
 [node name="PlayerStats" parent="." instance=ExtResource( 9 )]
 
@@ -155,7 +163,8 @@ music = ExtResource( 13 )
 script = ExtResource( 22 )
 
 [node name="UI" type="Control" parent="UserInterface"]
-margin_right = 240.0
+margin_left = 1.0
+margin_right = 241.0
 margin_bottom = 135.0
 theme = SubResource( 2 )
 __meta__ = {
@@ -215,17 +224,6 @@ volume_db = -28.0
 
 [node name="ItemDrop" parent="." instance=ExtResource( 25 )]
 position = Vector2( 109, -10 )
-
-[node name="Door2" parent="." instance=ExtResource( 15 )]
-position = Vector2( 80, -144 )
-next_position_x = 80
-next_position_y = -48
-is_bottom = true
-
-[node name="Door" parent="." instance=ExtResource( 15 )]
-position = Vector2( 80, -48 )
-next_position_x = 80
-next_position_y = -144
 
 [connection signal="lights_off" from="Room2/Power Switch" to="Lights" method="_on_Power_Switch_lights_off"]
 [connection signal="lights_on" from="Room2/Power Switch" to="Lights" method="_on_Power_Switch_lights_on"]
