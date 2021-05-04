@@ -1,9 +1,10 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Assets/Scenes/Power Switch.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Sprites/Items-Enviroment/Desk Chair.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Scenes/Server.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Scenes/Chonk.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Assets/Scenes/Brown Desk.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Sprites/Items-Enviroment/Desk large.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Sprites/Items-Enviroment/plant.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Sprites/Items-Enviroment/FileCabinet.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Sprites/Items-Enviroment/Bible_1.png" type="Texture" id=8]
@@ -13,7 +14,7 @@
 [ext_resource path="res://Assets/Sprites/UI/Health Bar Over.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Audio/Music/three.ogg" type="AudioStream" id=13]
 [ext_resource path="res://Assets/Sprites/UI/Health Bar Under.png" type="Texture" id=14]
-[ext_resource path="res://Assets/Scenes/NormalDoor.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Assets/Scenes/Normal Door Bottom.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Assets/Sprites/UI/Health Bar Progress.png" type="Texture" id=16]
 [ext_resource path="res://Assets/Scripts/StatsContainer.gd" type="Script" id=17]
 [ext_resource path="res://Assets/Sprites/Items-Enviroment/Growth_3.png" type="Texture" id=18]
@@ -27,11 +28,22 @@
 [ext_resource path="res://Assets/Audio/SFX/open.wav" type="AudioStream" id=26]
 [ext_resource path="res://Assets/Sprites/Lighting/white512.png" type="Texture" id=27]
 [ext_resource path="res://Assets/Scripts/Lights.gd" type="Script" id=28]
+[ext_resource path="res://Assets/Sprites/Items-Enviroment/Couch1.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Scenes/Normal Door Top.tscn" type="PackedScene" id=30]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 6, 6 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 5 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 8, 16 )
+
+[sub_resource type="DynamicFont" id=4]
 font_data = ExtResource( 23 )
 
-[sub_resource type="Theme" id=2]
+[sub_resource type="Theme" id=5]
 Label/colors/font_color = Color( 1, 1, 1, 1 )
 Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
 Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
@@ -39,11 +51,8 @@ Label/constants/line_spacing = 3
 Label/constants/shadow_as_outline = 0
 Label/constants/shadow_offset_x = 1
 Label/constants/shadow_offset_y = 1
-Label/fonts/font = SubResource( 1 )
+Label/fonts/font = SubResource( 4 )
 Label/styles/normal = null
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 6, 6 )
 
 [node name="Game" type="YSort"]
 
@@ -58,36 +67,7 @@ cell_size = Vector2( 32, 32 )
 collision_layer = 2
 collision_mask = 7
 format = 1
-tile_data = PoolIntArray( -458754, 1, 65536, -458753, 2, 65537, -524288, 2, 65537, -524287, 2, 65537, -524286, 2, 65537, -524285, 2, 65537, -524284, 1, 3, -393218, 1, 65536, -393217, 1, 65538, -458752, 1, 65538, -458751, 1, 65538, -458750, 1, 65538, -458749, 1, 65538, -458748, 1, 3, -327682, 1, 65536, -327681, 1, 65538, -393216, 1, 65538, -393215, 1, 65538, -393214, 1, 65538, -393213, 1, 65538, -393212, 1, 3, -262146, 2, 327682, -262145, 2, 65537, -327680, 2, 65537, -327679, 2, 65537, -327678, 2, 196613, -327677, 2, 65537, -327676, 2, 327681, -65538, 1, 65536, -65537, 1, 65537, -131072, 1, 65537, -131071, 1, 65537, -131070, 1, 196613, -131069, 1, 65537, -131068, 1, 65537, -131067, 1, 3, -2, 1, 65536, -1, 1, 65538, -65536, 1, 65538, -65535, 1, 65538, -65534, 1, 65538, -65533, 1, 65538, -65532, 1, 65538, -65531, 1, 65540, 65534, 1, 65536, 65535, 1, 65538, 0, 1, 65538, 1, 1, 65538, 2, 1, 65538, 3, 1, 65538, 4, 1, 65538, 5, 1, 65540, 131070, 1, 327682, 131071, 1, 65537, 65536, 1, 65537, 65537, 1, 65537, 65538, 1, 131077, 65539, 1, 65538, 65540, 1, 65538, 65541, 1, 65540, 131074, 1, 327682, 131075, 1, 65537, 131076, 1, 65537, 131077, 1, 327681, 262142, 3, 131072, 196609, 3, 131077 )
-
-[node name="Lights" type="Node2D" parent="."]
-script = ExtResource( 28 )
-
-[node name="Light2D" type="Light2D" parent="Lights"]
-position = Vector2( 15.5706, -1.45631 )
-texture = ExtResource( 27 )
-texture_scale = 0.5
-color = Color( 0.956863, 0.988235, 1, 1 )
-shadow_enabled = true
-
-[node name="Light2D2" type="Light2D" parent="Lights"]
-position = Vector2( 135, -8 )
-texture = ExtResource( 27 )
-texture_scale = 0.5
-color = Color( 0.956863, 0.988235, 1, 1 )
-shadow_enabled = true
-
-[node name="Light2D4" type="Light2D" parent="Lights"]
-position = Vector2( 99.0792, -199.917 )
-texture = ExtResource( 27 )
-texture_scale = 0.5
-color = Color( 0.956863, 0.988235, 1, 1 )
-
-[node name="Light2D3" type="Light2D" parent="Lights"]
-position = Vector2( -4.74821, -205.215 )
-texture = ExtResource( 27 )
-texture_scale = 0.5
-color = Color( 0.956863, 0.988235, 1, 1 )
+tile_data = PoolIntArray( -458754, 1, 65536, -458753, 2, 65537, -524288, 2, 65537, -524287, 2, 65537, -524286, 2, 65537, -524285, 2, 65537, -524284, 1, 3, -393218, 1, 65536, -393217, 1, 65538, -458752, 1, 65538, -458751, 1, 65538, -458750, 1, 65538, -458749, 1, 65538, -458748, 1, 3, -458742, 1, 65536, -458741, 1, 65539, -458740, 1, 65537, -458739, 1, 65537, -458738, 1, 3, -327682, 1, 65536, -327681, 1, 65538, -393216, 1, 65538, -393215, 1, 65538, -393214, 1, 65538, -393213, 1, 65538, -393212, 1, 3, -393206, 1, 65536, -393205, 1, 65538, -393204, 1, 65538, -393203, 1, 65538, -393202, 1, 3, -262146, 2, 327682, -262145, 2, 65537, -327680, 2, 65537, -327679, 2, 65537, -327678, 2, 196613, -327677, 2, 65537, -327676, 2, 327681, -327670, 1, 65536, -327669, 1, 65538, -327668, 1, 65538, -327667, 1, 65538, -327666, 1, 3, -262134, 1, 327682, -262133, 1, 65537, -262132, 1, 196613, -262131, 1, 65537, -262130, 1, 327681, -65538, 1, 65536, -65537, 1, 65537, -131072, 1, 65537, -131071, 1, 65537, -131070, 1, 196613, -131069, 1, 65537, -131068, 1, 196613, -131067, 1, 3, -2, 1, 65536, -1, 1, 65538, -65536, 1, 65538, -65535, 1, 65538, -65534, 1, 65538, -65533, 1, 65538, -65532, 1, 65538, -65531, 1, 65540, 65534, 1, 65536, 65535, 1, 65538, 0, 1, 65538, 1, 1, 65538, 2, 1, 65538, 3, 1, 65538, 4, 1, 65538, 5, 1, 65540, 131070, 1, 327682, 131071, 1, 65537, 65536, 1, 65537, 65537, 1, 65537, 65538, 1, 131077, 65539, 1, 65538, 65540, 1, 65538, 65541, 1, 65540, 131074, 1, 327682, 131075, 1, 65537, 131076, 1, 65537, 131077, 1, 327681, 262142, 3, 131072, 196609, 3, 131077 )
 
 [node name="Player" parent="." instance=ExtResource( 21 )]
 
@@ -109,16 +89,21 @@ texture = ExtResource( 11 )
 [node name="Server" parent="Room2" instance=ExtResource( 3 )]
 position = Vector2( -16, -221 )
 
+[node name="Server2" parent="Room2" instance=ExtResource( 3 )]
+position = Vector2( 5, -221 )
+
+[node name="Server3" parent="Room2" instance=ExtResource( 3 )]
+position = Vector2( 26, -221 )
+
 [node name="Chonk2" parent="Room2" instance=ExtResource( 4 )]
 position = Vector2( 101, -200 )
 scale = Vector2( 0.75, 0.75 )
 music = ExtResource( 13 )
 
-[node name="Door2" parent="Room2" instance=ExtResource( 15 )]
+[node name="Normal Door Bottom" parent="Room2" instance=ExtResource( 15 )]
 position = Vector2( 80, -144 )
 next_position_x = 80
 next_position_y = -48
-is_bottom = true
 
 [node name="Room 1" type="YSort" parent="."]
 
@@ -126,38 +111,106 @@ is_bottom = true
 position = Vector2( 48, -28 )
 scale = Vector2( 0.75, 0.75 )
 
-[node name="Brown Desk" parent="Room 1" instance=ExtResource( 5 )]
-position = Vector2( 48, -29 )
+[node name="Bible_1" type="Sprite" parent="Room 1"]
+position = Vector2( 48, -48 )
+texture = ExtResource( 8 )
 
-[node name="plant" type="Sprite" parent="Room 1"]
-position = Vector2( 24, -32 )
+[node name="Normal Door Top" parent="Room 1" instance=ExtResource( 30 )]
+position = Vector2( 80, -48 )
+next_position_x = 80
+next_position_y = -144
+
+[node name="Normal Door Top2" parent="Room 1" instance=ExtResource( 30 )]
+position = Vector2( 144, -48 )
+next_position_x = 400
+next_position_y = -112
+
+[node name="PlayerStats" parent="." instance=ExtResource( 9 )]
+
+[node name="Damage" type="Area2D" parent="."]
+position = Vector2( 118, -240 )
+script = ExtResource( 19 )
+
+[node name="Growth_3" type="Sprite" parent="Damage"]
+texture = ExtResource( 18 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damage"]
+position = Vector2( 0, 16 )
+shape = SubResource( 1 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Damage"]
+stream = ExtResource( 20 )
+volume_db = -28.0
+
+[node name="ItemDrop" parent="." instance=ExtResource( 25 )]
+position = Vector2( 109, -10 )
+
+[node name="Office #1" type="YSort" parent="."]
+
+[node name="Large Desk" type="StaticBody2D" parent="Office #1"]
+position = Vector2( 376, -172 )
+
+[node name="desk shadow" type="Sprite" parent="Office #1/Large Desk"]
+position = Vector2( -3.8147e-06, 5 )
+scale = Vector2( 14, 5 )
+z_index = -6
+texture = ExtResource( 11 )
+
+[node name="Desk" type="Sprite" parent="Office #1/Large Desk"]
+position = Vector2( 0, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Office #1/Large Desk"]
+visible = false
+position = Vector2( 0, 1 )
+polygon = PoolVector2Array( -15, -3, 6, -3, 6, -10, 15, -10, 15, 7, -15, 7 )
+
+[node name="File Cabinet" type="StaticBody2D" parent="Office #1"]
+position = Vector2( -3, -9 )
+
+[node name="FileCabinet" type="Sprite" parent="Office #1/File Cabinet"]
+position = Vector2( 411, -191 )
+z_index = -1
+texture = ExtResource( 7 )
+
+[node name="Square Shadow 2x2" type="Sprite" parent="Office #1/File Cabinet/FileCabinet"]
+position = Vector2( 0, 17 )
+scale = Vector2( 8, 1 )
+texture = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Office #1/File Cabinet"]
+position = Vector2( 411, -180 )
+shape = SubResource( 2 )
+
+[node name="plant" type="Sprite" parent="Office #1"]
+position = Vector2( 436, -144 )
 texture = ExtResource( 6 )
 
-[node name="plant shadow" type="Sprite" parent="Room 1/plant"]
+[node name="plant shadow" type="Sprite" parent="Office #1/plant"]
 position = Vector2( 0, 6 )
 scale = Vector2( 3, 3 )
 z_index = -6
 texture = ExtResource( 11 )
 
-[node name="FileCabinet" type="Sprite" parent="Room 1"]
-position = Vector2( 8, -40 )
-texture = ExtResource( 7 )
+[node name="Desk Chair" type="Sprite" parent="Office #1"]
+position = Vector2( 375, -180 )
+scale = Vector2( -0.8, 0.8 )
+texture = ExtResource( 2 )
 
-[node name="Square Shadow 2x2" type="Sprite" parent="Room 1/FileCabinet"]
-position = Vector2( 0, 17 )
-scale = Vector2( 8, 1 )
-texture = ExtResource( 11 )
+[node name="Office Couch" type="StaticBody2D" parent="Office #1"]
 
-[node name="Bible_1" type="Sprite" parent="Room 1"]
-position = Vector2( 48, -48 )
-texture = ExtResource( 8 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Office #1/Office Couch"]
+position = Vector2( 361, -144 )
+shape = SubResource( 3 )
 
-[node name="Door" parent="Room 1" instance=ExtResource( 15 )]
-position = Vector2( 80, -48 )
-next_position_x = 80
-next_position_y = -144
+[node name="Sprite" type="Sprite" parent="Office #1/Office Couch"]
+position = Vector2( 361, -144 )
+texture = ExtResource( 29 )
 
-[node name="PlayerStats" parent="." instance=ExtResource( 9 )]
+[node name="Normal Door Bottom2" parent="Office #1" instance=ExtResource( 15 )]
+position = Vector2( 400, -112 )
+next_position_x = 144
+next_position_y = -48
 
 [node name="UserInterface" type="CanvasLayer" parent="."]
 script = ExtResource( 22 )
@@ -166,8 +219,10 @@ script = ExtResource( 22 )
 margin_left = 1.0
 margin_right = 241.0
 margin_bottom = 135.0
-theme = SubResource( 2 )
+theme = SubResource( 5 )
 __meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -207,23 +262,44 @@ visible = false
 stream = ExtResource( 26 )
 volume_db = -5.0
 
-[node name="Damage" type="Area2D" parent="."]
-position = Vector2( 118, -240 )
-script = ExtResource( 19 )
+[node name="Lights" type="Node2D" parent="."]
+script = ExtResource( 28 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
-[node name="Growth_3" type="Sprite" parent="Damage"]
-texture = ExtResource( 18 )
+[node name="Light2D" type="Light2D" parent="Lights"]
+position = Vector2( 15.5706, -1.45631 )
+texture = ExtResource( 27 )
+texture_scale = 0.5
+color = Color( 0.956863, 0.988235, 1, 1 )
+shadow_enabled = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Damage"]
-position = Vector2( 0, 16 )
-shape = SubResource( 3 )
+[node name="Light2D2" type="Light2D" parent="Lights"]
+position = Vector2( 135, -8 )
+texture = ExtResource( 27 )
+texture_scale = 0.5
+color = Color( 0.956863, 0.988235, 1, 1 )
+shadow_enabled = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Damage"]
-stream = ExtResource( 20 )
-volume_db = -28.0
+[node name="Light2D4" type="Light2D" parent="Lights"]
+position = Vector2( 99.0792, -199.917 )
+texture = ExtResource( 27 )
+texture_scale = 0.5
+color = Color( 0.956863, 0.988235, 1, 1 )
 
-[node name="ItemDrop" parent="." instance=ExtResource( 25 )]
-position = Vector2( 109, -10 )
+[node name="Light2D3" type="Light2D" parent="Lights"]
+position = Vector2( -5, -205 )
+texture = ExtResource( 27 )
+texture_scale = 0.5
+color = Color( 0.956863, 0.988235, 1, 1 )
+
+[node name="Light2D5" type="Light2D" parent="Lights"]
+position = Vector2( 402, -167 )
+texture = ExtResource( 27 )
+texture_scale = 0.5
+color = Color( 0.956863, 0.988235, 1, 1 )
 
 [connection signal="lights_off" from="Room2/Power Switch" to="Lights" method="_on_Power_Switch_lights_off"]
 [connection signal="lights_on" from="Room2/Power Switch" to="Lights" method="_on_Power_Switch_lights_on"]
