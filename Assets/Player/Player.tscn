@@ -18,6 +18,11 @@ animations = [ {
 "name": "Idle_D",
 "speed": 4.0
 }, {
+"frames": [ ExtResource( 7 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "Walk_U",
+"speed": 2.5
+}, {
 "frames": [ ExtResource( 4 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "Walk_D",
@@ -27,11 +32,6 @@ animations = [ {
 "loop": true,
 "name": "Idle_U",
 "speed": 0.0
-}, {
-"frames": [ ExtResource( 7 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "Walk_U",
-"speed": 2.5
 } ]
 
 [sub_resource type="CircleShape2D" id=2]
@@ -45,7 +45,7 @@ collision_mask = 2
 script = ExtResource( 2 )
 
 [node name="Shadow" type="Sprite" parent="."]
-position = Vector2( 3.38813e-21, 7 )
+position = Vector2( 3.38813e-21, 5 )
 scale = Vector2( 0.36, 0.36 )
 z_index = -6
 texture = ExtResource( 8 )
@@ -54,7 +54,7 @@ texture = ExtResource( 8 )
 position = Vector2( 0, -8 )
 frames = SubResource( 1 )
 animation = "Idle_D"
-frame = 6
+frame = 11
 playing = true
 
 [node name="InteractArea" type="Area2D" parent="."]

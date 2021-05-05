@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Assets/Scenes/Power Switch.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Sprites/Items-Enviroment/Desk Chair.png" type="Texture" id=2]
@@ -30,6 +30,13 @@
 [ext_resource path="res://Assets/Scripts/Lights.gd" type="Script" id=28]
 [ext_resource path="res://Assets/Sprites/Items-Enviroment/Couch1.png" type="Texture" id=29]
 [ext_resource path="res://Assets/Scenes/Normal Door Top.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Assets/Scenes/Gavin.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Assets/Sprites/Items/Black Floppy.png" type="Texture" id=32]
+[ext_resource path="res://Assets/Scripts/Black Floppy Item.gd" type="Script" id=33]
+[ext_resource path="res://Assets/Scenes/Bogdan.tscn" type="PackedScene" id=34]
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 6.0
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6, 6 )
@@ -67,9 +74,10 @@ cell_size = Vector2( 32, 32 )
 collision_layer = 2
 collision_mask = 7
 format = 1
-tile_data = PoolIntArray( -458754, 1, 65536, -458753, 2, 65537, -524288, 2, 65537, -524287, 2, 65537, -524286, 2, 65537, -524285, 2, 65537, -524284, 1, 3, -393218, 1, 65536, -393217, 1, 65538, -458752, 1, 65538, -458751, 1, 65538, -458750, 1, 65538, -458749, 1, 65538, -458748, 1, 3, -458742, 1, 65536, -458741, 1, 65539, -458740, 1, 65537, -458739, 1, 65537, -458738, 1, 3, -327682, 1, 65536, -327681, 1, 65538, -393216, 1, 65538, -393215, 1, 65538, -393214, 1, 65538, -393213, 1, 65538, -393212, 1, 3, -393206, 1, 65536, -393205, 1, 65538, -393204, 1, 65538, -393203, 1, 65538, -393202, 1, 3, -262146, 2, 327682, -262145, 2, 65537, -327680, 2, 65537, -327679, 2, 65537, -327678, 2, 196613, -327677, 2, 65537, -327676, 2, 327681, -327670, 1, 65536, -327669, 1, 65538, -327668, 1, 65538, -327667, 1, 65538, -327666, 1, 3, -262134, 1, 327682, -262133, 1, 65537, -262132, 1, 196613, -262131, 1, 65537, -262130, 1, 327681, -65538, 1, 65536, -65537, 1, 65537, -131072, 1, 65537, -131071, 1, 65537, -131070, 1, 196613, -131069, 1, 65537, -131068, 1, 196613, -131067, 1, 3, -2, 1, 65536, -1, 1, 65538, -65536, 1, 65538, -65535, 1, 65538, -65534, 1, 65538, -65533, 1, 65538, -65532, 1, 65538, -65531, 1, 65540, 65534, 1, 65536, 65535, 1, 65538, 0, 1, 65538, 1, 1, 65538, 2, 1, 65538, 3, 1, 65538, 4, 1, 65538, 5, 1, 65540, 131070, 1, 327682, 131071, 1, 65537, 65536, 1, 65537, 65537, 1, 65537, 65538, 1, 131077, 65539, 1, 65538, 65540, 1, 65538, 65541, 1, 65540, 131074, 1, 327682, 131075, 1, 65537, 131076, 1, 65537, 131077, 1, 327681, 262142, 3, 131072, 196609, 3, 131077 )
+tile_data = PoolIntArray( -458754, 1, 65536, -458753, 2, 65537, -524288, 2, 65537, -524287, 2, 65537, -524286, 2, 65537, -524285, 2, 65537, -524284, 1, 3, -393218, 1, 65536, -393217, 1, 65538, -458752, 1, 65538, -458751, 1, 65538, -458750, 1, 65538, -458749, 1, 65538, -458748, 1, 3, -458742, 1, 65536, -458741, 1, 65539, -458740, 1, 65537, -458739, 1, 3, -327682, 1, 65536, -327681, 1, 65538, -393216, 1, 65538, -393215, 1, 65538, -393214, 1, 65538, -393213, 1, 65538, -393212, 1, 3, -393206, 1, 65536, -393205, 1, 65538, -393204, 1, 65538, -393203, 1, 3, -262146, 2, 327682, -262145, 2, 65537, -327680, 2, 65537, -327679, 2, 65537, -327678, 2, 196613, -327677, 2, 65537, -327676, 2, 327681, -327670, 1, 65536, -327669, 1, 65538, -327668, 1, 65538, -327667, 1, 3, -262134, 1, 327682, -262133, 1, 65537, -262132, 1, 196613, -262131, 1, 327681, -65538, 1, 65536, -65537, 1, 65537, -131072, 1, 65537, -131071, 1, 65537, -131070, 1, 196613, -131069, 1, 65537, -131068, 1, 196613, -131067, 1, 3, -2, 1, 65536, -1, 1, 65538, -65536, 1, 65538, -65535, 1, 65538, -65534, 1, 65538, -65533, 1, 65538, -65532, 1, 65538, -65531, 1, 65540, 65534, 1, 65536, 65535, 1, 65538, 0, 1, 65538, 1, 1, 65538, 2, 1, 65538, 3, 1, 65538, 4, 1, 65538, 5, 1, 65540, 131070, 1, 327682, 131071, 1, 65537, 65536, 1, 65537, 65537, 1, 65537, 65538, 1, 131077, 65539, 1, 65538, 65540, 1, 65538, 65541, 1, 65540, 131074, 1, 327682, 131075, 1, 65537, 131076, 1, 65537, 131077, 1, 327681, 262142, 3, 131072, 196609, 3, 131077 )
 
 [node name="Player" parent="." instance=ExtResource( 21 )]
+position = Vector2( -4, 0 )
 
 [node name="Room2" type="YSort" parent="."]
 
@@ -125,6 +133,19 @@ position = Vector2( 144, -48 )
 next_position_x = 400
 next_position_y = -112
 
+[node name="Black Floppy Item" type="StaticBody2D" parent="Room 1"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource( 33 )
+
+[node name="Sprite" type="Sprite" parent="Room 1/Black Floppy Item"]
+position = Vector2( 135, 6 )
+texture = ExtResource( 32 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room 1/Black Floppy Item"]
+position = Vector2( 135, 6 )
+shape = SubResource( 6 )
+
 [node name="PlayerStats" parent="." instance=ExtResource( 9 )]
 
 [node name="Damage" type="Area2D" parent="."]
@@ -161,7 +182,6 @@ position = Vector2( 0, 0.5 )
 texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Office #1/Large Desk"]
-visible = false
 position = Vector2( 0, 1 )
 polygon = PoolVector2Array( -15, -3, 6, -3, 6, -10, 15, -10, 15, 7, -15, 7 )
 
@@ -183,7 +203,7 @@ position = Vector2( 411, -180 )
 shape = SubResource( 2 )
 
 [node name="plant" type="Sprite" parent="Office #1"]
-position = Vector2( 436, -144 )
+position = Vector2( 410, -138 )
 texture = ExtResource( 6 )
 
 [node name="plant shadow" type="Sprite" parent="Office #1/plant"]
@@ -300,6 +320,12 @@ position = Vector2( 402, -167 )
 texture = ExtResource( 27 )
 texture_scale = 0.5
 color = Color( 0.956863, 0.988235, 1, 1 )
+
+[node name="Gavin" parent="." instance=ExtResource( 31 )]
+position = Vector2( 34, -3 )
+
+[node name="Bogdan" parent="." instance=ExtResource( 34 )]
+position = Vector2( 85, 1 )
 
 [connection signal="lights_off" from="Room2/Power Switch" to="Lights" method="_on_Power_Switch_lights_off"]
 [connection signal="lights_on" from="Room2/Power Switch" to="Lights" method="_on_Power_Switch_lights_on"]

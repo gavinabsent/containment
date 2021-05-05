@@ -1,0 +1,121 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Assets/Sprites/NPC/Gavin1.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Sprites/Deagle1.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/Deagle2.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/Player/PlayerShadow.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/Lighting/white128.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Scripts/Gavin.gd" type="Script" id=6]
+[ext_resource path="res://Assets/Sprites/NPC/Gavin6.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/NPC/Gavin5.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/NPC/Gavin2.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/NPC/Gavin9.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sprites/NPC/Gavin3.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Resources/Fonts/November.ttf" type="DynamicFontData" id=12]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 3.5, 2 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "Walk D",
+"speed": 2.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "Walk U",
+"speed": 2.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 10 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 4.2
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "shoot",
+"speed": 10.0
+} ]
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 14.0
+
+[sub_resource type="DynamicFont" id=5]
+size = 6
+outline_size = 1
+outline_color = Color( 0, 0, 0, 0 )
+font_data = ExtResource( 12 )
+
+[node name="Gavin" type="KinematicBody2D"]
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 6 )
+shape = SubResource( 1 )
+
+[node name="Shadow" type="Sprite" parent="."]
+position = Vector2( -1.78814e-07, 8 )
+scale = Vector2( 0.36, 0.36 )
+z_index = -6
+texture = ExtResource( 4 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -6 )
+frames = SubResource( 2 )
+animation = "Idle"
+frame = 12
+playing = true
+
+[node name="Deagle" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( -12.5, -10 )
+scale = Vector2( 0.3, 0.3 )
+frames = SubResource( 3 )
+playing = true
+flip_h = true
+
+[node name="Light2D" type="Light2D" parent="Deagle"]
+visible = false
+position = Vector2( -11.6667, -3.33333 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 5 )
+color = Color( 1, 0.964706, 0.576471, 1 )
+energy = 1.5
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, 2 )
+shape = SubResource( 4 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -21.0
+margin_top = -32.0
+margin_right = 22.0
+margin_bottom = -18.0
+grow_horizontal = 2
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Got a keycard?"
+align = 1
+valign = 1
+max_lines_visible = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
